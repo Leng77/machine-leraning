@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>csdn_export_md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>机器学习吃瓜教程</h3><ul><li><a href="#__1">第四章 决策树</a></li><ul><li><a href="#41_2">4.1基本流程</a></li><li><a href="#42_11">4.2划分选择</a></li><ul><li><a href="#421_12">4.2.1信息增益</a></li><li><a href="#422__27">4.2.2 增益率</a></li><li><a href="#423__35">4.2.3 基尼指数</a></li></ul><li><a href="#43_46">4.3剪枝处理</a></li><li><a href="#44__47">4.4 连续与缺失值</a></li><li><a href="#45_48">4.5多变量决策树</a></li><li><a href="#46_49">4.6阅读材料</a></li></ul></ul></div><p></p>
+<h1><a id="__1"></a>第四章 决策树</h1>
+<h2><a id="41_2"></a>4.1基本流程</h2>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 决策树(decision tre e )是一类常见的机器学习方法.以二分类任务为例，我<br>
+们希望从给定训练数据集学得一个模型用以对新示例进行分类，这个把样本<br>
+分类的任务，可 看 作 对 “当前样本属于正类吗?”这 个 问 题 的 “决策”或 “判<br>
+定 ”过程.<br>
+&nbsp;&nbsp; &nbsp; &nbsp;  决策树的生成是一个递归过程.在决策树基本算法中，有三种情形会<br>
+导致递归返回：( 1 )当前结点包含的样本全属于同一类别，无需划分；( 2 )当前<br>
+属性集为空，或是所有样本在所有属性上取值相同，无法划分；( 3 )当前结点包<br>
+含的样本集合为空，不能划分.</p>
+</blockquote>
+<h2><a id="42_11"></a>4.2划分选择</h2>
+<h3><a id="421_12"></a>4.2.1信息增益</h3>
+<blockquote>
+<p>“信息熵 "(information entropy)是度量样本集合纯度最常用的一种指标.<br>
+假定当前样本集合。 中第k 类样本所占的比例为也(k = 1,2,… ，3 ) , 则 D<br>
+的信息熵定义为：<br>
+<img src="https://img-blog.csdnimg.cn/f60c18145b7f440f9cfef67330fb9e70.png" alt="在这里插入图片描述"><br>
+Ent(D)的值越小，则 D 的纯度越高</p>
+</blockquote>
+<blockquote>
+<p>对于信息增益：<br>
+<img src="https://img-blog.csdnimg.cn/fe24bb7dc0e64a77828f1c4433f3ab57.png" alt="在这里插入图片描述"><br>
+假定离散属性a 有 V 个 可 能 的 取 值 谓 ,… ， 若使用a 来对样本集<br>
+D进行划分,则会产生V 个分支结点，其中第v 个分支结点包含了 D 中所有在<br>
+属性a上取值为a<sup>v</sup>的样本,记为D<sup>v</sup><br>
+表达式为:<br>
+<img src="https://img-blog.csdnimg.cn/cb5913c76685429187c24b23a67e568c.png" alt="在这里插入图片描述">一般而言，信息增益越大，则意味着使用属性a 来进行划分所获得的“纯<br>
+度提升”越大</p>
+</blockquote>
+<h3><a id="422__27"></a>4.2.2 增益率</h3>
+<blockquote>
+<p>信息增益准则对可取值数目较多的属性有所偏好，为减少这种<br>
+偏好可能带来的不利影响，著名的C4.5决策树算法[Quinlan, 1993]不直接使<br>
+用信息增益，而是使用“增益率”(gain ra tio )来选择最优划分属性<br>
+增益率定义为：<br>
+<img src="https://img-blog.csdnimg.cn/ae7d5793f2844ae4b97744d71297a7ef.png" alt="在这里插入图片描述"><br>
+其中：<br>
+<img src="https://img-blog.csdnimg.cn/5ff2336e75ea4484b4501ed93ead9df2.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<h3><a id="423__35"></a>4.2.3 基尼指数</h3>
+<blockquote>
+<p>CART 决 策 树 [Breiman et a l, 1984]使 用 “基 尼 指 数 "(Gini index)来选<br>
+择划分属性，数据集D 的纯度可用基尼值来度量：<br>
+<img src="https://img-blog.csdnimg.cn/69ddd6515af94fc4ac0d4060086a8480.png" alt="在这里插入图片描述"><br>
+直观来说，Gini(D)反映了从数据集D中随机抽取两个样本，其类别标记<br>
+不一致的概率.因此,Gini(D)越小，则数据集D的纯度越高<br>
+属性a 的基尼指数定义为:<br>
+<img src="https://img-blog.csdnimg.cn/b3ff6803a055479ba06184ea9192429d.png" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/e29283344f1042a3a5e381df63696876.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2><a id="43_46"></a>4.3剪枝处理</h2>
+<h2><a id="44__47"></a>4.4 连续与缺失值</h2>
+<h2><a id="45_48"></a>4.5多变量决策树</h2>
+<h2><a id="46_49"></a>4.6阅读材料</h2>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>csdn_export_md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>机器学习吃瓜教程</h3><ul><li><a href="#__1">第三章 线性模型</a></li><ul><li><a href="#31_2">3.1基本形式</a></li><li><a href="#32_10">3.2线性回归</a></li><ul><li><a href="#_11">一元线性回归</a></li><li><a href="#_20">多元线性回归</a></li></ul><li><a href="#33_34">3.3对数几率回归</a></li><li><a href="#34_52">3.4线性判别分析</a></li><li><a href="#35_54">3.5多分类学习</a></li><li><a href="#36_55">3.6类别不平衡问题</a></li><li><a href="#37_56">3.7阅读材料</a></li></ul></ul></div><p></p>
+<h1><a id="__1"></a>第三章 线性模型</h1>
+<h2><a id="31_2"></a>3.1基本形式</h2>
+<blockquote>
+<p>   给定d个属性描述的实例x =(x<sub>1</sub>x<sub>2</sub>;…;x<sub>d</sub>)，其中x<sub>i</sub>是x在第i个属性上的取值，线性模型(linear model)试图学得一个通过属性的线性组合来进行预测的函数，即<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(x)=w<sub>1</sub>x<sub>1</sub>+w<sub>2</sub>x<sub>2</sub>+…+w<sub>d</sub>x<sub>d</sub>+b,<br>
+一般用向量形式写成<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(x)=w<sup>T</sup>x+b,<br>
+其中w=(w<sub>1</sub>;w<sub>2</sub>;…w<sub>d</sub>),w和b学得之后，模型就可以确定。<br>
+   线性模型形式简单、易于建模，但却蕴含着机器学习中一些重要的基本思想，许多功能更为强大的非线性模型(nonlinear model)可在线性模型的基础上通过引入层级结构或高维映射而得。此外，由于w直观表达了各属性在预测中的重要性，因此线性模型有很好的可解释性(comprehensibility)。例如若在西瓜问题中学得“f<sub>好瓜</sub>=0.2<em>x<sub>色泽</sub>+0.5</em>x<sub>根蒂</sub>+0.3*x<sub>敲声</sub>+1”，则意味着可通过综合考虑色泽、根蒂和敲声来判断瓜好不好，其中根蒂最要紧，而敲声比色泽更重要。<br>
+   本章介绍几种经典的线性模型，我们先从回归任务开始，然后讨论二分类和多分类任务。</p>
+</blockquote>
+<h2><a id="32_10"></a>3.2线性回归</h2>
+<h3><a id="_11"></a>一元线性回归</h3>
+<blockquote>
+<p>最小二乘估计<br>
+基于均方误差最小化来进行模型求解的方法称为“最小二乘法”</p>
+<blockquote>
+<center>f（x <sub>i</sub>）＝ wx<sub>i</sub>+b
+</center></blockquote>
+<p><img src="https://img-blog.csdnimg.cn/fa08710f3fdc41269ad09bd14ce33988.png" alt="在这里插入图片描述"><br>
+如何在这个式子里面确定w与p呢？公式如下</p>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/584feb1515a046ccb9dc3fb1e44da28f.png" alt="在这里插入图片描述"><br>
+之后分别通过对w与b求偏导可求出w与b的值</p>
+</blockquote>
+</blockquote>
+<h3><a id="_20"></a>多元线性回归</h3>
+<blockquote>
+<p>可利用最小二乘法来对w 和 b 进行估计.为便于讨论，我们把w<br>
+和 b 吸收入向量形式w = ( w ; 6),相应的，把数据集D 表示为一个m x ( d + 1 )<br>
+大小的矩阵X , 其中每行对应于一个示例，该行前d 个元素对应于示例的d 个<br>
+属性值,最后一个元素恒置为1 ,即<img src="https://img-blog.csdnimg.cn/253175aa84c04381b09684cd514fd7e5.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>当 X<sup>T</sup>X 为满秩矩阵(full-rank matrix)或正定矩阵(positive definite ma-trix) 时,令式(3.10)为零可得<br>
+<img src="https://img-blog.csdnimg.cn/a43fbf316b69439593ff0fda299e8ff4.png" alt="在这里插入图片描述"></p>
+<p>其 中 ( X<sup>T</sup>X )<sup>-1</sup> 是 矩 阵 (  X<sup>T</sup>X ) 的逆矩阵.令a = ( g ,1),则最终学得的多元线性回归模型为<br>
+<img src="https://img-blog.csdnimg.cn/804d3f71cc5f44458921399c72269a27.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/e405e7e4bac2469f912e8f9f3a7b628c.png" alt="在这里插入图片描述"></p>
+<h2><a id="33_34"></a>3.3对数几率回归</h2>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/3a0040c9b7344e99b8472f2f3f249bb7.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>对 数 几 率 函 数 (logistic function)是一个常用的替代函数:<br>
+<img src="https://img-blog.csdnimg.cn/db3adaf1a6e7482aaf0705a26c5c5994.png" alt="在这里插入图片描述"></p>
+<p>其值域为[0,1]<br>
+对数几率函数是一种"Sigmoid函 数 " 它 将 z 值转化为一个<br>
+接近0 或 1 的 y 值<br>
+将概率近似为离散0与1<br>
+<img src="https://img-blog.csdnimg.cn/a84375c68ad64733841c49f396736fd1.png" alt="在这里插入图片描述"></p>
+<p>有<br>
+<img src="https://img-blog.csdnimg.cn/a08dc2fea6b448cb990ebc65a943a8ee.png" alt="在这里插入图片描述"></p>
+<p>可通过 “极大似然法”(maximum likelihood method)来估计 w 和 b对数几率 回归模型最大化“对数似然”(log-likelihood)<br>
+<img src="https://img-blog.csdnimg.cn/2a7b2a07eafd4f559f8f9ae0a009e943.png" alt="在这里插入图片描述"></p>
+<h2><a id="34_52"></a>3.4线性判别分析</h2>
+<h2><a id="35_54"></a>3.5多分类学习</h2>
+<h2><a id="36_55"></a>3.6类别不平衡问题</h2>
+<h2><a id="37_56"></a>3.7阅读材料</h2>
+</div>
+</body>
+
+</html>

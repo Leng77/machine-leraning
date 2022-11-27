@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>csdn_export_md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>机器学习吃瓜教程</h3><ul><li><a href="#__1">第五章 神经网络</a></li><ul><li><a href="#51__2">5.1 神经元模型</a></li><li><a href="#52__11">5.2 感知机与多层网络</a></li><li><a href="#53__24">5.3 误差与逆传播算法</a></li><li><a href="#54__34">5.4 全局最小与局部极小</a></li><li><a href="#55__35">5.5 其他常见神经网络</a></li><li><a href="#56__36">5.6 深度学习</a></li><li><a href="#57__37">5.7 阅读材料</a></li></ul></ul></div><p></p>
+<h1><a id="__1"></a>第五章 神经网络</h1>
+<h2><a id="51__2"></a>5.1 神经元模型</h2>
+<p><img src="https://img-blog.csdnimg.cn/4b0d166e87954ba1bf2e70dbf17c31e1.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>这就是一直沿用至今的“M -P 神经元模型”.在这个模型中，神经元接<br>
+收到来自几个其他神经元传递过来的输入信号，这些输入信号通过带权重的连<br>
+接(connection)进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过“激活函数”(activation function)处理以产生神经元的输出.</p>
+</blockquote>
+<blockquote>
+<p>以下是两个最典型的激活函数<br>
+<img src="https://img-blog.csdnimg.cn/ec98a9ebd6f7486daa003f52280b02c9.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2><a id="52__11"></a>5.2 感知机与多层网络</h2>
+<blockquote>
+<p>感知机(Perceptron)由两层神经元组成,输入层接收外<br>
+界输入信号后传递给输出层，输 出 层 是 M -P 神经元，亦 称 “阈值逻辑单<br>
+元”(threshold logic unit).<br>
+<img src="https://img-blog.csdnimg.cn/c5a5c81a64c74068a63e46fc5ab1b241.png" alt="在这里插入图片描述"><br>
+给定数据集 ，其损失函数可以定义为:<br>
+<img src="https://img-blog.csdnimg.cn/5844204cd6534f12bd5b0634832c7c6d.png" alt="在这里插入图片描述"><br>
+极小化损失函数的解：<br>
+<img src="https://img-blog.csdnimg.cn/769f5fdfec2e40e0b6cf6ab23d643931.png" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/1c45d3b3ea1c489d87e21318e0165210.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/23bd5b6a3bcd46bd85efc2d6efc6c834.png" alt="在这里插入图片描述"></p>
+<h2><a id="53__24"></a>5.3 误差与逆传播算法</h2>
+<blockquote>
+<p>多层网络的学习能力比单层感知机强得多.欲训练多层网络，简单感知机学习规则显然不够了，需要更强大的学习算法.误差逆传播(errorBackPropagation,简称B P ) 算法就是其中最杰出的代表，它是迄今最成功的神经网络学习算法.现实任务中使用神经网络时，大多是在使用B P 算法进行训练.值得指出的是，B P 算法不仅可用于多层前馈神经网络，还可用于其他类型的神经网络，例如训练递归神经网络<br>
+<img src="https://img-blog.csdnimg.cn/c55b6493c70842b786c86b00219b583c.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<blockquote>
+<p>假定神经网络的输出为:<br>
+<img src="https://img-blog.csdnimg.cn/cf1558b4045842bc839ac8586d1a1340.png" alt="在这里插入图片描述"><br>
+均方误差为:<br>
+<img src="https://img-blog.csdnimg.cn/e27b3cecb21c494c9bde9441960b5d03.png" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/c22202e6211f441696d6b93be1a5b804.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2><a id="54__34"></a>5.4 全局最小与局部极小</h2>
+<h2><a id="55__35"></a>5.5 其他常见神经网络</h2>
+<h2><a id="56__36"></a>5.6 深度学习</h2>
+<h2><a id="57__37"></a>5.7 阅读材料</h2>
+<p>​</p>
+</div>
+</body>
+
+</html>
